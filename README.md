@@ -1,4 +1,4 @@
-Script feitos em Python
+Script feitos em Python |||
 Atacado 83 - 1/4
 Açai e Cupuaçu HC - 2/4
 Copiadora Hudson - 3/4
