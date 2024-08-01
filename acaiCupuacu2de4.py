@@ -1,4 +1,4 @@
-print('Açai e Cupuaçu HC')
+print(' ---------- Açai e Cupuaçu HC ----------')
 print('--------------------CARDAPIO----------------------')
 print('------| Tamanho | Cupuaçu (CP) | Açai (AC) |------')
 print('------|    P    |   R$ 10,00   |  R$ 12,00 |------')

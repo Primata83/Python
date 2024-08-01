@@ -69,7 +69,7 @@ def servico_extra():
 # fim da função serviço extra da linha 47 a 66
 
 # inicio do bloco de exibição no terminal
-print('-----|Bem vindo a Copiadora Hudson|-----')
+print('-------- Copiadora Hudson --------')
 servicos = escolha_servico()
 paginas = num_pagina()
 extra = servico_extra()

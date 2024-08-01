@@ -1,4 +1,4 @@
-print('Bem Vindo ao Atacado 83')
+print('------- Atacado 83 -------')
 valor_produto = float(input('Entre com o valor desejado: '))
 qtd_produto = int(input('Entre com a quantidade desejada: '))
 #apresentação e inserção de valores da compra
