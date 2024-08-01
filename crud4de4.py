@@ -86,7 +86,7 @@ def remover_livro():
 #-----------------fim de Remover Livro-----------------
 
 #-----------------INICIO DO MENU PRINCIPAL-----------------
-print('---Bem Vindo ao Controle de Livros Hudson Cleiton de Paula---')
+print('---Bem Vindo ao Controle de Livros Primata---')
 while True:
   opcao_principal = input('\n -----Escolha a opção desejada----- \n' +
                           '1 - Cadastrar Livros \n' +
