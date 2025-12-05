@@ -1,0 +1,107 @@
+# ===============================================
+# Sistema de Gestão Hospitalar (CRUD) (SSGHSS)
+# ===============================================
+
+# Classe Paciente
+class Paciente:
+    def __init__(self, id, nome, cpf, contato):
+        self.id = id
+        self.nome = nome
+        self.cpf = cpf
+        self.contato = contato
+
+# Classe Profissional de Saúde
+class ProfissionalSaude:
+    def __init__(self, id, nome, especialidade, registro):
+        self.id = id
+        self.nome = nome
+        self.especialidade = especialidade
+        self.registro = registro
+
+# Classe Consulta
+class Consulta:
+    def __init__(self, id, paciente, profissional, data, motivo, status="Agendada"):
+        self.id = id
+        self.paciente = paciente
+        self.profissional = profissional
+        self.data = data
+        self.motivo = motivo
+        self.status = status
+
+# ==============================
+# "Banco de dados" em memória
+# =============================
+pacientes = []
+profissionais = []
+consultas = []
+
+# =================
+# CRUD Paciente
+# =================
+def criar_paciente(id, nome, cpf, contato):
+    paciente = Paciente(id, nome, cpf, contato)
+    pacientes.append(paciente)
+    print(f"Paciente {nome} cadastrado com sucesso!")
+
+def listar_pacientes():
+    for p in pacientes:
+        print(f"{p.id} - {p.nome} - {p.cpf} - {p.contato}")
+
+def atualizar_paciente(id, novo_nome):
+    for p in pacientes:
+        if p.id == id:
+            p.nome = novo_nome
+            print(f"Paciente {id} atualizado para {novo_nome}")
+
+def deletar_paciente(id):
+    global pacientes
+    pacientes = [p for p in pacientes if p.id != id]
+    print(f"Paciente {id} removido.")
+
+# =======================
+# CRUD Profissional
+# =======================
+def criar_profissional(id, nome, especialidade, registro):
+    prof = ProfissionalSaude(id, nome, especialidade, registro)
+    profissionais.append(prof)
+    print(f"Profissional {nome} cadastrado com sucesso!")
+
+def listar_profissionais():
+    for prof in profissionais:
+        print(f"{prof.id} - {prof.nome} - {prof.especialidade} - {prof.registro}")
+
+# ==================
+# CRUD Consulta
+# ==================
+def agendar_consulta(id, paciente_id, profissional_id, data, motivo):
+    paciente = next((p for p in pacientes if p.id == paciente_id), None)
+    profissional = next((pr for pr in profissionais if pr.id == profissional_id), None)
+    if paciente and profissional:
+        consulta = Consulta(id, paciente, profissional, data, motivo)
+        consultas.append(consulta)
+        print(f"Consulta agendada para {paciente.nome} com {profissional.nome} em {data}")
+    else:
+        print("Paciente ou profissional não encontrado.")
+
+def listar_consultas():
+    for c in consultas:
+        print(f"{c.id} - {c.paciente.nome} com {c.profissional.nome} em {c.data} | {c.status}")
+
+def cancelar_consulta(id):
+    for c in consultas:
+        if c.id == id:
+            c.status = "Cancelada"
+            print(f"Consulta {id} cancelada.")
+
+# ===================
+# Exemplo de uso
+# ===================
+criar_paciente(1, "Hudson Cleiton", "123.456.789-00", "hudson@email.com")
+criar_profissional(1, "Dra. Magaly", "Neurologista", "CRM1234")
+agendar_consulta(1, 1, 1, "2025-12-10 14:00", "Consulta")
+
+listar_pacientes()
+listar_profissionais()
+listar_consultas()
+cancelar_consulta(1)
+listar_consultas()
